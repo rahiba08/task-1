@@ -1,0 +1,75 @@
+<%- include('../layouts/header.ejs') -%>
+
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  form {
+    max-width: 400px;
+    width: 100%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  .form-group {
+    margin-bottom: 20px;
+  }
+  .text-center {
+    text-align: center;
+  }
+  .mb-0 {
+    margin-bottom: 0;
+  }
+  .btn-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  </style>
+
+  
+  <form action="/login" method="POST" >
+    <!-- 2 column grid layout with text inputs for the first and last names -->
+   
+  
+    <!-- Email input -->
+    <div class="form-check d-flex justify-content-center text-danger">
+      <%
+      
+      if(typeof message != 'undefined'){
+              %>
+              <h6>
+                  <%= message %>
+              </h6>
+              <%
+      }
+  
+      %>
+    </div>
+    <div class="form-outline mb-4">
+      <input type="email" id="email" name="email" required class="form-control" />
+      <label class="form-label" for="email">Email address</label>
+    </div>
+  
+    <!-- Password input -->
+    <div class="form-outline mb-4">
+      <input type="password" id="password" name="password" required class="form-control" />
+      <label class="form-label" for="password">Password</label>
+    </div>
+  
+    <!-- Submit button -->
+    <div class="form-check d-flex justify-content-center mb-4">
+      <button type="submit" class="btn btn-primary btn-block mb-4">Login </button>
+    </div>
+
+    <div class="form-check d-flex justify-content-center mb-4">
+        <a href="/register">Register</a>
+    </div>
+  </form>
+  
+  
+
+<%- include('../layouts/footer.ejs') -%>

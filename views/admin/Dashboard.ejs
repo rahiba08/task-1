@@ -1,0 +1,90 @@
+<%- include('../layouts/header.ejs') -%>
+
+<style>
+  table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+  
+    th, td {
+      padding: 8px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+  
+    th {
+      background-color: #f2f2f2;
+    }
+  
+  </style>
+<div class="form-check d-flex justify-content-center mb-4r">
+  <h1>ADMIN DASHBOARD</h1>
+</div>
+
+
+
+<form action="">
+  <div style="padding-left:5rem ;">
+    <input type="text" class="rounded" placeholder="Search" name="search">
+    <!-- <input type="submit"  value="Search"> -->
+    <button title="Search" type="submit" value="Search" class="btn btn-primary btn-sm">Search</button>
+  </div>
+
+</form>
+
+
+
+
+
+
+
+
+
+
+<div style="padding: 1rem;">
+  
+  <div style="padding-top: 2rem;">
+    <form class="form-check d-flex justify-content-center mb-4" method="get" action="/admin/newuser">
+      <button type="submit" class="btn btn-primary btn-block mb-4">newuser</button>
+    </form>
+  </div>
+  </form>
+</div>
+
+<table width="50%">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Car</th>
+    <th>Actions</th>
+  </tr>
+
+  <% if (users.length > 0) { %>
+    <% for (let i = 0; i < users.length; i++) { %>
+      <tr>
+        <td><%= users[i].name %></td>
+        <td><%= users[i].email %></td>
+        <td><%= users[i].car %></td>
+        <td>
+          <a href="/admin/edituser?id=<%=users[i]._id%>" class="edit" title="Edit"><i class="material-icons">&#xE254;</i></a>
+          <a href="/admin/deleteUser?id=<%=users[i]._id%>" onclick="return confirm('Are you sure you want to delete this user?')" class="delete" title="Delete"><i class="material-icons">&#xE872;</i></a>
+      </td>
+
+
+
+      </tr>
+    <% } %>
+  <% } else { %>
+    <tr>
+      <td colspan="3">User list empty</td>
+    </tr>
+  <% } %>
+</table>
+
+<div style="padding-top: 2rem;">
+  <form class="form-check d-flex justify-content-center mb-4" method="POST" action="/admin/signout">
+    <button type="submit" class="btn btn-primary btn-block mb-4">Logout</button>
+  </form>
+</div>
+
+<%- include('../layouts/footer.ejs') -%>

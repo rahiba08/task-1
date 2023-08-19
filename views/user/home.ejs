@@ -1,0 +1,53 @@
+<%- include('../layouts/header.ejs') -%>
+
+<style>
+table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th, td {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+  }
+
+  th {
+    background-color: #f2f2f2;
+  }
+
+</style>
+
+
+<div class="form-check d-flex justify-content-center mb-4">
+  <h1> Welcome <%= user.name %> </h1>
+</div>
+<div>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Car</th>
+    </tr>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= user.email %></td>
+      <td><%= user.car %></td>
+    </tr>
+  </table>
+</div>
+
+
+<div style="padding-top: 2rem;">
+  <form class="form-check d-flex justify-content-center mb-4" method="POST" action="/logout">
+    <button type="submit" class="btn btn-primary btn-block mb-4">Logout </button>
+</form>
+</div>
+
+
+<%- include('../layouts/footer.ejs') -%>
+
+
+
+
+
